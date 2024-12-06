@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/string-calculator-tdd/static/css/main.5be4a118.css",
+    "main.js": "/string-calculator-tdd/static/js/main.db27cbb7.js",
+    "index.html": "/string-calculator-tdd/index.html",
+    "main.5be4a118.css.map": "/string-calculator-tdd/static/css/main.5be4a118.css.map",
+    "main.db27cbb7.js.map": "/string-calculator-tdd/static/js/main.db27cbb7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5be4a118.css",
+    "static/js/main.db27cbb7.js"
+  ]
+}
