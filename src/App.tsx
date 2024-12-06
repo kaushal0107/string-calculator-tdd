@@ -9,14 +9,22 @@ function App() {
 
   const handleCalculate = () => {
     try {
+      if (!input.trim()) {
+        throw new Error("Input cannot be empty. Please enter numbers.");
+      }
+
       setError(null);
       const sum = add(input);
       setResult(`Result: ${sum}`);
-      setHistory([...history, `${input} = ${sum}`]);
+      setHistory((prevHistory) => [...prevHistory, `${input} = ${sum}`]);
     } catch (e: any) {
       setError(e.message);
       setResult(null);
     }
+  };
+
+  const handleClearHistory = () => {
+    setHistory([]);
   };
 
   return (
@@ -56,10 +64,18 @@ function App() {
           </button>
         </form>
         {error && (
-          <p className="text-red-600 text-center mt-4 font-semibold">{error}</p>
+          <p
+            className="text-red-600 text-center mt-4 font-semibold"
+            role="alert"
+          >
+            {error}
+          </p>
         )}
         {result && (
-          <p className="text-green-600 text-center mt-4 font-semibold">
+          <p
+            className="text-green-600 text-center mt-4 font-semibold"
+            role="status"
+          >
             {result}
           </p>
         )}
@@ -78,6 +94,12 @@ function App() {
                 </li>
               ))}
             </ul>
+            <button
+              onClick={handleClearHistory}
+              className="mt-4 w-full bg-red-500 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-red-600 transition duration-200"
+            >
+              Clear History
+            </button>
           </div>
         )}
       </div>
